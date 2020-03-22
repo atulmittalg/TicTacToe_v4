@@ -6,7 +6,7 @@ public class TicTacToeGame {
 
     public void playTurnAt(final int positionX, final int positionY) {
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
-        currentPlayerToBePlayed = 'O';
+        currentPlayerToBePlayed = (currentPlayerToBePlayed == 'X') ? 'O' : 'X';
     }
 
     public char getPlayerAt(final int positionX, final int positionY) {
