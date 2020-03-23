@@ -14,15 +14,19 @@ public class TicTacToeGame {
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
         totalTurnsPlayed++;
         if (isCurrentPlayerWinner()){
-            gameOutcomeReached = true;
+            gameOutcomeHasBeenReached();
             return ("Player " + currentPlayerToBePlayed + " is the Winner");
         }
         if (isGameDraw()){
-            gameOutcomeReached = true;
+            gameOutcomeHasBeenReached();
             return "It is a Draw";
         }
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
         return null;
+    }
+
+    private void gameOutcomeHasBeenReached() {
+        gameOutcomeReached = true;
     }
 
     private boolean isGameDraw() {
