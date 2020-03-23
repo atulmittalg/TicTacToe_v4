@@ -7,14 +7,16 @@ public class TicTacToeGame {
     public String playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
         checkIsPositionAlreadyFilled(positionX, positionY);
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
-        if (isCurrentPlayerWinnerByRow()) return ("Player " + currentPlayerToBePlayed + " is the Winner");
-        if (isCurrentPlayerWinnerByColumn()) return ("Player " + currentPlayerToBePlayed + " is the Winner");
-        if (isCurrentPlayerWinnerByLeftToRightDiagonal())
-            return ("Player " + currentPlayerToBePlayed + " is the Winner");
-        if (isCurrentPlayerWinnerByRightToLeftDiagonal())
-            return ("Player " + currentPlayerToBePlayed + " is the Winner");
+        if (isCurrentPlayerWinner()) return ("Player " + currentPlayerToBePlayed + " is the Winner");
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
         return null;
+    }
+
+    private boolean isCurrentPlayerWinner() {
+        return (isCurrentPlayerWinnerByRow() ||
+                isCurrentPlayerWinnerByColumn() ||
+                isCurrentPlayerWinnerByLeftToRightDiagonal() ||
+                isCurrentPlayerWinnerByRightToLeftDiagonal());
     }
 
     private boolean isCurrentPlayerWinnerByRightToLeftDiagonal() {
