@@ -9,7 +9,7 @@ public class TicTacToeGame {
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
         if (isXWinnerByRow()) return "Player X is the Winner";
         if (isOWinnerByRow()) return "Player O is the Winner";
-        for(int column = 0; column <2 ; column++) {
+        for(int column = 0; column <3 ; column++) {
             if ((getPlayerAt(0,column) == 'X') &&
                     (getPlayerAt(0,column) == getPlayerAt(1,column)) &&
                     (getPlayerAt(0,column) == getPlayerAt(2,column))) {
