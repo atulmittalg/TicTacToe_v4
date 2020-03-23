@@ -17,7 +17,10 @@ public class TicTacToeGame {
             gameOutcomeReached = true;
             return ("Player " + currentPlayerToBePlayed + " is the Winner");
         }
-        if (isGameDraw()) return "It is a Draw";
+        if (isGameDraw()){
+            gameOutcomeReached = true;
+            return "It is a Draw";
+        }
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
         return null;
     }

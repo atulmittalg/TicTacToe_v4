@@ -217,4 +217,18 @@ public class TicTacToeGameTest {
         ticTacToeGame.playTurnAt(2,2);
 
     }
+
+    @Test(expected = GameOverException.class)
+    public void playTurnAtShouldThrowGameOverExceptionWhenTurnIsPlayedAfterOutcomeDrawIsReached() throws PositionAlreadyInUseException, GameOverException {
+        ticTacToeGame.playTurnAt(0,0);
+        ticTacToeGame.playTurnAt(0,2);
+        ticTacToeGame.playTurnAt(0,1);
+        ticTacToeGame.playTurnAt(1,0);
+        ticTacToeGame.playTurnAt(1,2);
+        ticTacToeGame.playTurnAt(1,1);
+        ticTacToeGame.playTurnAt(2,0);
+        ticTacToeGame.playTurnAt(2,1);
+        ticTacToeGame.playTurnAt(2,2);
+        ticTacToeGame.playTurnAt(1,1);
+    }
 }
