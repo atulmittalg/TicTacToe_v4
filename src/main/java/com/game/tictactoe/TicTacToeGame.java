@@ -4,10 +4,16 @@ public class TicTacToeGame {
     private char[][] gameBoardLayout = new char[3][3];
     private char currentPlayerToBePlayed = 'X';
 
-    public void playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
+    public String playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
         checkIsPositionAlreadyFilled(positionX, positionY);
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
+        if ((getPlayerAt(0,0) == 'X' ) &&
+                (getPlayerAt(0,0) == getPlayerAt(0,1)) &&
+                (getPlayerAt(0,0) == (getPlayerAt(0,2)))) {
+            return "Player X is the Winner";
+        }
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
+        return null;
     }
 
     private void checkIsPositionAlreadyFilled(final int positionX, final int positionY) throws PositionAlreadyInUseException {
