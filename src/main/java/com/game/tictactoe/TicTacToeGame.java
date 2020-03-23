@@ -1,8 +1,10 @@
 package com.game.tictactoe;
 
 public class TicTacToeGame {
-    private char[][] gameBoardLayout = new char[3][3];
-    private char currentPlayerToBePlayed = 'X';
+    private final char PLAYERX = 'X';
+    private final int MAXGRIDSIZE = 3;
+    private char[][] gameBoardLayout = new char[MAXGRIDSIZE][MAXGRIDSIZE];
+    private char currentPlayerToBePlayed = PLAYERX;
     private int totalTurnsPlayed;
 
     public String playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
@@ -39,7 +41,7 @@ public class TicTacToeGame {
     }
 
     private boolean isCurrentPlayerWinnerByColumn() {
-        for(int column = 0; column <3 ; column++) {
+        for(int column = 0; column <MAXGRIDSIZE ; column++) {
             if ((getPlayerAt(0,column) == currentPlayerToBePlayed) &&
                     (getPlayerAt(0,column) == getPlayerAt(1,column)) &&
                     (getPlayerAt(0,column) == getPlayerAt(2,column))) {
@@ -50,7 +52,7 @@ public class TicTacToeGame {
     }
 
     private boolean isCurrentPlayerWinnerByRow(){
-        for(int row = 0; row <3 ; row++) {
+        for(int row = 0; row <MAXGRIDSIZE ; row++) {
             if ((getPlayerAt(row,0) == currentPlayerToBePlayed) &&
                     (getPlayerAt(row,0) == getPlayerAt(row,1)) &&
                     (getPlayerAt(row,0) == getPlayerAt(row,2))) {
@@ -67,7 +69,7 @@ public class TicTacToeGame {
     }
 
     private char getNextPlayerToBePlayed() {
-        return (currentPlayerToBePlayed == 'X') ? 'O' : 'X';
+        return (currentPlayerToBePlayed == PLAYERX) ? 'O' : PLAYERX;
     }
 
     public char getPlayerAt(final int positionX, final int positionY) {
