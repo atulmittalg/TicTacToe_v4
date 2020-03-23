@@ -10,9 +10,13 @@ public class TicTacToeGame {
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
         totalTurnsPlayed++;
         if (isCurrentPlayerWinner()) return ("Player " + currentPlayerToBePlayed + " is the Winner");
-        if(totalTurnsPlayed == 9) return "It is a Draw";
+        if (isGameDraw()) return "It is a Draw";
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
         return null;
+    }
+
+    private boolean isGameDraw() {
+        return (totalTurnsPlayed == 9);
     }
 
     private boolean isCurrentPlayerWinner() {
