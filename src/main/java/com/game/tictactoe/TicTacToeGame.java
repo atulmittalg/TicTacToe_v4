@@ -5,11 +5,15 @@ public class TicTacToeGame {
     private char currentPlayerToBePlayed = 'X';
 
     public void playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
-        if(gameBoardLayout[positionX][positionY] != '\0'){
-            throw new PositionAlreadyInUseException(positionX, positionY);
-        }
+        checkIsPositionAlreadyFilled(positionX, positionY);
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
+    }
+
+    private void checkIsPositionAlreadyFilled(final int positionX, final int positionY) throws PositionAlreadyInUseException {
+        if(gameBoardLayout[positionX][positionY] != '\0') {
+            throw new PositionAlreadyInUseException(positionX, positionY);
+        }
     }
 
     private char getNextPlayerToBePlayed() {
