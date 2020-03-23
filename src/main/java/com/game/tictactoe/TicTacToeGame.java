@@ -6,12 +6,17 @@ public class TicTacToeGame {
     private char[][] gameBoardLayout = new char[MAXGRIDSIZE][MAXGRIDSIZE];
     private char currentPlayerToBePlayed = PLAYERX;
     private int totalTurnsPlayed;
+    private boolean gameOutcomeReached;
 
-    public String playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
+    public String playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException, GameOverException {
+        if(gameOutcomeReached) throw new GameOverException();
         checkIsPositionAlreadyFilled(positionX, positionY);
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
         totalTurnsPlayed++;
-        if (isCurrentPlayerWinner()) return ("Player " + currentPlayerToBePlayed + " is the Winner");
+        if (isCurrentPlayerWinner()){
+            gameOutcomeReached = true;
+            return ("Player " + currentPlayerToBePlayed + " is the Winner");
+        }
         if (isGameDraw()) return "It is a Draw";
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
         return null;

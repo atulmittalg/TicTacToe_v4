@@ -16,20 +16,20 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void getPlayerAtShouldReturnXWhenFirstTurnIsPlayed() throws PositionAlreadyInUseException {
+    public void getPlayerAtShouldReturnXWhenFirstTurnIsPlayed() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         assertEquals('X', ticTacToeGame.getPlayerAt(0,0));
     }
 
     @Test
-    public void getPlayerAtShouldReturnOWhenSecondTurnIsPlayed() throws PositionAlreadyInUseException {
+    public void getPlayerAtShouldReturnOWhenSecondTurnIsPlayed() throws PositionAlreadyInUseException , GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,1);
         assertEquals('O', ticTacToeGame.getPlayerAt(0,1));
     }
 
     @Test
-    public void getPlayerAtShouldReturnXWhenThirdTurnIsPlayed() throws PositionAlreadyInUseException {
+    public void getPlayerAtShouldReturnXWhenThirdTurnIsPlayed() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(0,2);
@@ -37,13 +37,13 @@ public class TicTacToeGameTest {
     }
 
     @Test(expected = PositionAlreadyInUseException.class)
-    public void playTurnAtShouldThrowPositionAlreadyFilledExceptionWhenPlayingAtAUsedPosition() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldThrowPositionAlreadyFilledExceptionWhenPlayingAtAUsedPosition() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,0);
     }
 
     @Test
-    public void playTurnAtShouldReturnXIsWinnerWhenEntireFirstRowIsOccupiedByX() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnXIsWinnerWhenEntireFirstRowIsOccupiedByX() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(1,0);
         ticTacToeGame.playTurnAt(0,1);
@@ -52,7 +52,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnXIsWinnerWhenEntireSecondRowIsOccupiedByX() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnXIsWinnerWhenEntireSecondRowIsOccupiedByX() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(1,0);
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(1,1);
@@ -61,7 +61,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnXIsWinnerWhenEntireThirdRowIsOccupiedByX() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnXIsWinnerWhenEntireThirdRowIsOccupiedByX() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(2,0);
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(2,1);
@@ -70,7 +70,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnOIsWinnerWhenEntireFirstRowIsOccupiedByO() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnOIsWinnerWhenEntireFirstRowIsOccupiedByO() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(1,0);
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(2,0);
@@ -80,7 +80,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnOIsWinnerWhenEntireSecondRowIsOccupiedByO() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnOIsWinnerWhenEntireSecondRowIsOccupiedByO() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(1,0);
         ticTacToeGame.playTurnAt(2,0);
@@ -90,7 +90,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnOIsWinnerWhenEntireThirdRowIsOccupiedByO() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnOIsWinnerWhenEntireThirdRowIsOccupiedByO() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(2,0);
         ticTacToeGame.playTurnAt(1,0);
@@ -100,7 +100,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnXIsWinnerWhenEntireFirstColumnIsOccupiedByX() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnXIsWinnerWhenEntireFirstColumnIsOccupiedByX() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(1,0);
@@ -109,7 +109,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnXIsWinnerWhenEntireSecondColumnIsOccupiedByX() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnXIsWinnerWhenEntireSecondColumnIsOccupiedByX() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(1,1);
@@ -118,7 +118,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnXIsWinnerWhenEntireThirdColumnIsOccupiedByX() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnXIsWinnerWhenEntireThirdColumnIsOccupiedByX() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,2);
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(1,2);
@@ -127,7 +127,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnOIsWinnerWhenEntireFirstColumnIsOccupiedByO() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnOIsWinnerWhenEntireFirstColumnIsOccupiedByO() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(1,2);
@@ -137,7 +137,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnOIsWinnerWhenEntireSecondColumnIsOccupiedByO() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnOIsWinnerWhenEntireSecondColumnIsOccupiedByO() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(1,2);
@@ -147,7 +147,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnOIsWinnerWhenEntireThirdColumnIsOccupiedByO() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnOIsWinnerWhenEntireThirdColumnIsOccupiedByO() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,2);
         ticTacToeGame.playTurnAt(1,1);
@@ -157,7 +157,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnXIsWinnerWhenEntireLeftToRightDiagonalIsOccupiedByX() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnXIsWinnerWhenEntireLeftToRightDiagonalIsOccupiedByX() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(1,1);
@@ -166,7 +166,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnOIsWinnerWhenEntireLeftToRightDiagonalIsOccupiedByO() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnOIsWinnerWhenEntireLeftToRightDiagonalIsOccupiedByO() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,2);
@@ -176,7 +176,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnXIsWinnerWhenEntireRightToLeftDiagonalIsOccupiedByX() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnXIsWinnerWhenEntireRightToLeftDiagonalIsOccupiedByX() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,2);
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(1,1);
@@ -185,7 +185,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnOIsWinnerWhenEntireRightToLeftDiagonalIsOccupiedByO() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnOIsWinnerWhenEntireRightToLeftDiagonalIsOccupiedByO() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,1);
         ticTacToeGame.playTurnAt(0,2);
         ticTacToeGame.playTurnAt(0,0);
@@ -195,7 +195,7 @@ public class TicTacToeGameTest {
     }
 
     @Test
-    public void playTurnAtShouldReturnItsADrawWhenNineChancesArePlayedAndNeitherPlayerHas3InARow() throws PositionAlreadyInUseException {
+    public void playTurnAtShouldReturnItsADrawWhenNineChancesArePlayedAndNeitherPlayerHas3InARow() throws PositionAlreadyInUseException, GameOverException {
         ticTacToeGame.playTurnAt(0,0);
         ticTacToeGame.playTurnAt(0,2);
         ticTacToeGame.playTurnAt(0,1);
@@ -205,5 +205,16 @@ public class TicTacToeGameTest {
         ticTacToeGame.playTurnAt(2,0);
         ticTacToeGame.playTurnAt(2,1);
         assertEquals("It is a Draw", ticTacToeGame.playTurnAt(2,2));
+    }
+
+    @Test(expected = GameOverException.class)
+    public void playTurnAtShouldThrowGameOverExceptionWhenTurnIsPlayedAfterOutcomeWinIsReached() throws PositionAlreadyInUseException, GameOverException {
+        ticTacToeGame.playTurnAt(1,0);
+        ticTacToeGame.playTurnAt(0,0);
+        ticTacToeGame.playTurnAt(1,1);
+        ticTacToeGame.playTurnAt(2,0);
+        ticTacToeGame.playTurnAt(1,2);
+        ticTacToeGame.playTurnAt(2,2);
+
     }
 }
