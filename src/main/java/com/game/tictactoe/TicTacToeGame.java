@@ -7,7 +7,7 @@ public class TicTacToeGame {
     public String playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
         checkIsPositionAlreadyFilled(positionX, positionY);
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
-        for(int row = 0; row <2 ; row++) {
+        for(int row = 0; row <3 ; row++) {
             if ((getPlayerAt(row,0) == 'X') &&
                     (getPlayerAt(row,0) == getPlayerAt(row,1)) &&
                     (getPlayerAt(row,0) == getPlayerAt(row,2))) {
