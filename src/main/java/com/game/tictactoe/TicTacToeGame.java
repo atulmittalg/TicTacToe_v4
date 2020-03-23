@@ -8,26 +8,14 @@ public class TicTacToeGame {
         checkIsPositionAlreadyFilled(positionX, positionY);
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
         if (isCurrentPlayerWinnerByRow()) return ("Player " + currentPlayerToBePlayed + " is the Winner");
-        if (isXWinnerByColumn()) return "Player X is the Winner";
-        if (isOWinnerByColumn()) return "Player O is the Winner";
+        if (isCurrentPlayerWinnerByColumn()) return ("Player " + currentPlayerToBePlayed + " is the Winner");
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
         return null;
     }
 
-    private boolean isOWinnerByColumn() {
+    private boolean isCurrentPlayerWinnerByColumn() {
         for(int column = 0; column <3 ; column++) {
-            if ((getPlayerAt(0,column) == 'O') &&
-                    (getPlayerAt(0,column) == getPlayerAt(1,column)) &&
-                    (getPlayerAt(0,column) == getPlayerAt(2,column))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isXWinnerByColumn() {
-        for(int column = 0; column <3 ; column++) {
-            if ((getPlayerAt(0,column) == 'X') &&
+            if ((getPlayerAt(0,column) == currentPlayerToBePlayed) &&
                     (getPlayerAt(0,column) == getPlayerAt(1,column)) &&
                     (getPlayerAt(0,column) == getPlayerAt(2,column))) {
                 return true;
