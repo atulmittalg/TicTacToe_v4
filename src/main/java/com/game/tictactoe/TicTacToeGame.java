@@ -9,6 +9,11 @@ public class TicTacToeGame {
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
         if (isXWinnerByRow()) return "Player X is the Winner";
         if (isOWinnerByRow()) return "Player O is the Winner";
+        if ((getPlayerAt(0,0) == 'X') &&
+                (getPlayerAt(0,0) == getPlayerAt(1,0)) &&
+                (getPlayerAt(0,0) == getPlayerAt(2,0))) {
+            return "Player X is the Winner";
+        }
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
         return null;
     }
