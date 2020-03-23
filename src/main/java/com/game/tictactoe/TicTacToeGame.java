@@ -3,11 +3,14 @@ package com.game.tictactoe;
 public class TicTacToeGame {
     private char[][] gameBoardLayout = new char[3][3];
     private char currentPlayerToBePlayed = 'X';
+    private int totalTurnsPlayed;
 
     public String playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
         checkIsPositionAlreadyFilled(positionX, positionY);
         gameBoardLayout[positionX][positionY] = currentPlayerToBePlayed;
+        totalTurnsPlayed++;
         if (isCurrentPlayerWinner()) return ("Player " + currentPlayerToBePlayed + " is the Winner");
+        if(totalTurnsPlayed == 9) return "It is a Draw";
         currentPlayerToBePlayed = getNextPlayerToBePlayed();
         return null;
     }
