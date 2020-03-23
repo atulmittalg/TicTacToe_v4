@@ -87,4 +87,8 @@ public class TicTacToeGame {
     public char getPlayerAt(final int positionX, final int positionY) {
         return gameBoardLayout[positionX][positionY];
     }
+
+    public char[][] getGameBoardLayout() {
+        return gameBoardLayout;
+    }
 }
